@@ -50,13 +50,9 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2un-re-C7E">
                                 <rect key="frame" x="30" y="816" width="354" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrT-1t-cSy">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrT-1t-cSy">
                                         <rect key="frame" x="0.0" y="0.0" width="167" height="60"/>
                                         <color key="backgroundColor" name="Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="TDF-TL-KU9"/>
-                                            <constraint firstAttribute="width" constant="157" id="ZAf-ck-bQp"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Нет">
@@ -78,10 +74,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1V-lV-EbM">
                                         <rect key="frame" x="187" y="0.0" width="167" height="60"/>
                                         <color key="backgroundColor" name="Color"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="157" id="3dz-b6-toO"/>
-                                            <constraint firstAttribute="height" constant="60" id="LRM-mc-Gq6"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Да">
@@ -130,7 +122,6 @@
                         <viewLayoutGuide key="safeArea" id="3fj-Ft-iku"/>
                         <color key="backgroundColor" name="YP Blackground"/>
                         <constraints>
-                            <constraint firstItem="3fj-Ft-iku" firstAttribute="trailing" secondItem="qOG-w3-hns" secondAttribute="trailing" constant="20" id="7K1-2a-8uk"/>
                             <constraint firstItem="3fj-Ft-iku" firstAttribute="trailing" secondItem="2un-re-C7E" secondAttribute="trailing" constant="30" id="88D-Sy-Emm"/>
                             <constraint firstItem="2un-re-C7E" firstAttribute="leading" secondItem="3fj-Ft-iku" secondAttribute="leading" constant="30" id="9D9-7M-mFr"/>
                             <constraint firstItem="qOG-w3-hns" firstAttribute="top" secondItem="Dff-4q-a27" secondAttribute="bottom" constant="20" id="GTQ-xQ-S0t"/>
@@ -147,7 +138,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="counterLabel" destination="Dff-4q-a27" id="dJd-AV-uPu"/>
+                        <outlet property="counterLabel" destination="5N8-6e-At8" id="ywp-uB-W2i"/>
                         <outlet property="imageView" destination="qOG-w3-hns" id="6Yv-Aa-W08"/>
                         <outlet property="textLabel" destination="j0T-B5-R19" id="ejK-29-hjj"/>
                     </connections>

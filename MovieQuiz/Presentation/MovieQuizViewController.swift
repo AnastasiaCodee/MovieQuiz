@@ -1,147 +1,44 @@
 import UIKit
 
-
-struct QuizStepViewModel {
-    let image: UIImage
-    let question: String
-    let questionNumber: String
-}
-
-
-struct QuizResultsViewModel {
-    let title: String
-    let text: String
-    let buttonText: String
-    
-}
-
-struct QuizQuestion {
-    let image: String
-    let text: String
-    let correctAnswer: Bool
-}
-
 final class MovieQuizViewController: UIViewController {
     
-   
+    
+    
     
     @IBOutlet private weak var textLabel: UILabel!
     
     @IBOutlet private weak var imageView: UIImageView!
     
-    @IBOutlet private weak var counterLabel: UIStackView!
+    @IBOutlet weak var counterLabel: UILabel!
+  
     
     private var currentQuestionIndex = 0
-    
     private var correctAnswers = 0
+    private let questionsAmount: Int = 10
+    private var questionFactory: QuestionFactoryProtocol = QuestionFactory()
+    private var currentQuestion: QuizQuestion?
     
-    private let questions: [QuizQuestion] = [
-        //Mock-данные
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        QuizQuestion(
-            image : "The Godfather",
-            //Картинка: The Godfather
-            //Настоящий рейтинг: 9,2
-            text: "Рейтинг этого фильма больше чем 6?" ,
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: true),
-        //Ответ: ДА
-        
-        QuizQuestion(
-            image: "The Dark Knignt" ,
-            // Картинка: The Dark Knight
-            //Настоящий рейтинг: 9
-            text: "Рейтинг этого фильма больше чем 6?",
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: true),
-        // Ответ: ДА
-        
-        QuizQuestion(
-            image: "Kill Bill",
-            //Картинка: Kill Bill
-            //Настоящий рейтинг: 8,1
-            text: "Рейтинг этого фильма больше чем 6?",
-            // Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: true ),
-        //Ответ: ДА
-        
-        QuizQuestion(
-            image: "The Avengers",
-            //Картинка: The Avengers
-            //Настоящий рейтинг: 8
-            text: "Рейтинг этого фильма больше чем 6?",
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: true),
-        //Ответ: ДА
-        
-        QuizQuestion(
-            image: "Deadpool",
-            //Картинка: Deadpool
-            //Настоящий рейтинг: 8
-            text: "Рейтинг этого фильма больше чем 6?",
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: true),
-        //Ответ: ДА
-        
-        QuizQuestion(
-            image: "The Green Knigt",
-            //Картинка: The Green Knight
-            //Настоящий рейтинг: 6,6
-            text: "Рейтинг этого фильма больше чем 6?",
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: true),
-        //Ответ: ДА
-        
-        
-        QuizQuestion(
-            image: "Old",
-            //Картинка: Old
-            //Настоящий рейтинг: 5,8
-            text: "Рейтинг этого фильма больше чем 6?",
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: false),
-        //Ответ: НЕТ
-        
-        
-        QuizQuestion(
-            image: "The Ice Age Adventures of Buck Wild" ,
-            //Картинка: The Ice Age Adventures of Buck Wild
-            //Настоящий рейтинг: 4,3
-            text: "Рейтинг этого фильма больше чем 6?",
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: false),
-        //Ответ: НЕТ
-        
-        
-        QuizQuestion(
-            image: "Tesla",
-            //Картинка: Tesla
-            //Настоящий рейтинг: 5,1
-            text: "Рейтинг этого фильма больше чем 6?",
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: false),
-        //Ответ: НЕТ
-        
-        
-        QuizQuestion(
-            image : "Vivarium",
-            //Картинка: Vivarium
-            //Настоящий рейтинг: 5,8
-            text: "Рейтинг этого фильма больше чем 6?",
-            //Вопрос: Рейтинг этого фильма больше чем 6?
-            correctAnswer: false)
-        //Ответ: НЕТ
-    ]
+        imageView.layer.cornerRadius = 20
+        if let firstQuestion = self.questionFactory.requestNextQuestion() {
+            self.currentQuestion = firstQuestion
+            let viewModel = self.convert(model: firstQuestion)
+
+            self.show(quiz: viewModel)
+        }
+    }
     
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
         let image = UIImage(named: model.image) ?? UIImage()
-        let questionNumber = "\(currentQuestionIndex + 1)/\(questions.count)"
+        let questionNumber = "\(currentQuestionIndex + 1)/\(questionsAmount)"
         return QuizStepViewModel (image: image, question: model.text, questionNumber: questionNumber)
     }
     private func show(quiz step: QuizStepViewModel) {
         imageView.image = step.image
         textLabel.text = step.question
-        UIStackView.text = step.questionNumber
+        counterLabel.text = step.questionNumber
     }
     
     private func showAnswerResult(isCorrect: Bool) {
@@ -156,39 +53,47 @@ final class MovieQuizViewController: UIViewController {
             self.imageView.layer.borderWidth = 0
         }
     }
-        
+    
     private func showNextQuestionOrResults() {
-        currentQuestionIndex += 1
-        
-        if currentQuestionIndex < questions.count {
-            let nextQuestion = questions[currentQuestionIndex]
-            let viewModel = convert(model: nextQuestion)
-            show(quiz: viewModel)
+                
+        if currentQuestionIndex == questionsAmount - 1 {
+            if let nextQuestion = questionFactory.requestNextQuestion() {
+                let viewModel = convert(model: nextQuestion)
+                show(quiz: viewModel)
+            }
         } else {
-            let result = QuizResultsViewModel (title: "Этот раунд окончен!" ,
-                                               text: "Ваш результат: (correctAnswers)/\(questions.count)" ,
+            let viewModel = QuizResultsViewModel (title: "Этот раунд окончен!" ,
+                                               text: "Ваш результат: (correctAnswers)/\(questionsAmount)" ,
                                                buttonText: "Сыграть ещё раз")
-            show(quiz: result)
+            show(quiz: viewModel)
         }
     }
     
     
     
     @IBAction private func noButtonClicked(_ sender: UIButton) {
-        let currentQuestion = questions[currentQuestionIndex]
-        let givenAnswer = false
+        guard let currentQuestion = currentQuestion else {
+            return
+        }
+            
+            let givenAnswer = false
+            
+            showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        }
         
-        showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
-    }
+    
     
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
-        let currentQuestion = questions[currentQuestionIndex]
+        guard let currentQuestion = currentQuestion else {
+            return
+        }
         let givenAnswer = true
         
         showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
     }
     
     private func show(quiz result: QuizResultsViewModel) {
+        
         let alert = UIAlertController(
             title: result.title,
             message: result.text,
@@ -201,13 +106,19 @@ final class MovieQuizViewController: UIViewController {
             self.currentQuestionIndex = 0
             self.correctAnswers = 0
             
-            if let firstQuestion = self.questions.first {
+            if let firstQuestion = self.questionFactory.requestNextQuestion() {
+                self.currentQuestion = firstQuestion
+                
                 let viewModel = self.convert(model: firstQuestion)
                 self.show(quiz: viewModel)
             }
         }
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-            }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            
+            guard let self = self else { return }
+            self.showNextQuestionOrResults()
         }
-   
+        
+    }
+}
