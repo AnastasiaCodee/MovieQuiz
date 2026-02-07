@@ -1,6 +1,6 @@
 import UIKit
 
-//MARK: - Main View Controller
+    //MARK: - Main View Controller
 
 final class MovieQuizViewController: UIViewController {
     
@@ -148,7 +148,6 @@ final class MovieQuizViewController: UIViewController {
     
     //MARK: - Private Methods
     
-    
     private func convert(model: QuizQuestion) -> QuizStepViewModel {
         let questionStep = QuizStepViewModel(
             image: UIImage(named: model.image) ?? UIImage(),
@@ -225,12 +224,10 @@ final class MovieQuizViewController: UIViewController {
         showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
     }
     
-    
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
         let currentQuestion = questions[currentQuestionIndex]
         let givenAnswer = true
         
         showAnswerResult(isCorrect: givenAnswer == currentQuestion.correctAnswer)
     }
-    
 }
