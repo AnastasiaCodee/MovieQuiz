@@ -44,7 +44,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default" translatesAutoresizingMaskIntoConstraints="NO" id="qOG-w3-hns" userLabel="Preview Image">
-                                <rect key="frame" x="20" y="98" width="335" height="502"/>
+                                <rect key="frame" x="20" y="98" width="334.5" height="502"/>
                                 <color key="backgroundColor" name="Color 1"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <constraints>
@@ -119,7 +119,6 @@
                             <constraint firstItem="GHL-sA-i6L" firstAttribute="leading" secondItem="3fj-Ft-iku" secondAttribute="leading" constant="20" id="VMv-ck-GN7"/>
                             <constraint firstItem="3fj-Ft-iku" firstAttribute="trailing" secondItem="j0T-B5-R19" secondAttribute="trailing" constant="20" id="YW6-ID-iBj"/>
                             <constraint firstItem="E6g-uJ-CWb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="54" id="aNz-u6-1a2"/>
-                            <constraint firstItem="3fj-Ft-iku" firstAttribute="trailing" secondItem="qOG-w3-hns" secondAttribute="trailing" constant="20" id="o5F-uv-oFZ"/>
                             <constraint firstItem="qOG-w3-hns" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="98" id="x7N-sI-G3F"/>
                             <constraint firstItem="E6g-uJ-CWb" firstAttribute="leading" secondItem="3fj-Ft-iku" secondAttribute="leading" constant="20" id="xqJ-Bh-RcH"/>
                             <constraint firstItem="GHL-sA-i6L" firstAttribute="top" secondItem="j0T-B5-R19" secondAttribute="bottom" constant="20" id="ya2-Ji-8tF"/>
