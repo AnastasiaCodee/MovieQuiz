@@ -12,7 +12,21 @@ final class MovieQuizViewController: UIViewController {
     
     @IBOutlet private weak var counterLabel: UILabel!
     
+    @IBOutlet private weak var noButton: UIButton!
+    
+    @IBOutlet private weak var yesButton: UIButton!
+    
     //MARK: - Private Methods
+    
+    private func disableButtons() {
+        noButton.isEnabled = false
+        yesButton.isEnabled = false
+    }
+    
+    private func enableButtons () {
+        noButton.isEnabled = true
+        yesButton.isEnabled = true
+    }
     
     private var currentQuestionIndex = 0
     private var correctAnswers = 0
@@ -97,7 +111,6 @@ final class MovieQuizViewController: UIViewController {
             correctAnswer: true),
         //Ответ: ДА
         
-        
         QuizQuestion(
             image: "Old",
             //Картинка: Old
@@ -106,7 +119,6 @@ final class MovieQuizViewController: UIViewController {
             //Вопрос: Рейтинг этого фильма больше чем 6?
             correctAnswer: false),
         //Ответ: НЕТ
-        
         
         QuizQuestion(
             image: "The Ice Age Adventures of Buck Wild" ,
@@ -117,7 +129,6 @@ final class MovieQuizViewController: UIViewController {
             correctAnswer: false),
         //Ответ: НЕТ
         
-        
         QuizQuestion(
             image: "Tesla",
             //Картинка: Tesla
@@ -126,7 +137,6 @@ final class MovieQuizViewController: UIViewController {
             //Вопрос: Рейтинг этого фильма больше чем 6?
             correctAnswer: false),
         //Ответ: НЕТ
-        
         
         QuizQuestion(
             image : "Vivarium",
@@ -167,6 +177,7 @@ final class MovieQuizViewController: UIViewController {
             correctAnswers += 1
         }
         
+        imageView.layer.cornerRadius = 15
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrect ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
@@ -190,6 +201,8 @@ final class MovieQuizViewController: UIViewController {
             let viewModel = convert(model: nextQuestion)
             
             show(quiz: viewModel)
+            
+            enableButtons()
         }
     }
     
@@ -208,6 +221,8 @@ final class MovieQuizViewController: UIViewController {
             let firstQuestion = self.questions[self.currentQuestionIndex]
             let viewModel = self.convert(model: firstQuestion)
             self.show(quiz: viewModel)
+            
+            self.enableButtons()
         }
         
         alert.addAction(action)
@@ -218,6 +233,8 @@ final class MovieQuizViewController: UIViewController {
     //MARK: - IB Actions
     
     @IBAction private func noButtonClicked(_ sender: UIButton) {
+        disableButtons()
+        
         let currentQuestion = questions[currentQuestionIndex]
         let givenAnswer = false
         
@@ -225,6 +242,8 @@ final class MovieQuizViewController: UIViewController {
     }
     
     @IBAction private func yesButtonClicked(_ sender: UIButton) {
+        disableButtons()
+        
         let currentQuestion = questions[currentQuestionIndex]
         let givenAnswer = true
         
