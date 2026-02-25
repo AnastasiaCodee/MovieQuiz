@@ -67,7 +67,7 @@ final class MovieQuizViewController: UIViewController {
         //Ответ: ДА
         
         QuizQuestion(
-            image: "The Dark Knignt" ,
+            image: "The Dark Knight" ,
             // Картинка: The Dark Knight
             //Настоящий рейтинг: 9
             text: "Рейтинг этого фильма больше чем 6?",
