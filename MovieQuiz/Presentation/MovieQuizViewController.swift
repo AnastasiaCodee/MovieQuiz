@@ -157,8 +157,12 @@ final class MovieQuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.layer.cornerRadius = 15
+        imageView.layer.cornerRadius = 20
         imageView.layer.masksToBounds = true
+        yesButton.layer.cornerRadius = 15
+        yesButton.layer.masksToBounds = true
+        noButton.layer.cornerRadius = 15
+        noButton.layer.masksToBounds = true
         resetImageViewBorder()
         
         let firstQuestion = questions[currentQuestionIndex]
