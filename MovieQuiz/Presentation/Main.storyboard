@@ -23,22 +23,23 @@
                 <viewController id="BYZ-38-t0r" customClass="MovieQuizViewController" customModule="MovieQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Pl0-Sp-jLe">
-                                <rect key="frame" x="20" y="106" width="335" height="672"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="65H-vk-C0X">
+                                <rect key="frame" x="20" y="106" width="334" height="672"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="E6g-uJ-CWb">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="23.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="meO-1T-E4r">
+                                        <rect key="frame" x="0.0" y="0.0" width="334" height="23.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="Вопрос" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cos-hx-F3H" userLabel="Question Title Label">
-                                                <rect key="frame" x="0.0" y="0.0" width="67.5" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Вопрос" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2w-2J-ljF" userLabel="Question Title Label">
+                                                <rect key="frame" x="0.0" y="0.0" width="167" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="Color"/>
                                                 <nil key="highlightedColor"/>
                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="1/10" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5N8-6e-At8" userLabel="Index Label">
-                                                <rect key="frame" x="267.5" y="0.0" width="67.5" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="1/10" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dig-f7-k2y" userLabel="Index Label">
+                                                <rect key="frame" x="167" y="0.0" width="167" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <color key="textColor" name="Color"/>
                                                 <nil key="highlightedColor"/>
@@ -46,36 +47,35 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Default" translatesAutoresizingMaskIntoConstraints="NO" id="qOG-w3-hns" userLabel="Preview Image">
-                                        <rect key="frame" x="0.0" y="43.5" width="335" height="502"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="Default" translatesAutoresizingMaskIntoConstraints="NO" id="qOG-w3-hns" userLabel="Preview Image">
+                                        <rect key="frame" x="0.0" y="43.5" width="334" height="501"/>
                                         <color key="backgroundColor" name="Color 1"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
                                         <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="335" id="Kze-t9-jVJ"/>
-                                            <constraint firstAttribute="height" constant="502" id="kj8-kf-ZYA"/>
+                                            <constraint firstAttribute="width" secondItem="qOG-w3-hns" secondAttribute="height" multiplier="2:3" id="XCn-bW-FAA"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="image" keyPath="layer.cornerRadius " value="15"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Рейтинг этого фильма меньше чем 5?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0T-B5-R19" userLabel="Question Label">
-                                        <rect key="frame" x="0.0" y="565.5" width="335" height="26.5"/>
-                                        <fontDescription key="fontDescription" name="YSDisplay-Bold" family="YS Display" pointSize="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Рейтинг этого фильма меньше чем 5?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0T-B5-R19" userLabel="Question Label">
+                                        <rect key="frame" x="0.0" y="564.5" width="334" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="YSDisplay-Bold" family="YS Display" pointSize="20"/>
                                         <color key="textColor" name="Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="GHL-sA-i6L">
-                                        <rect key="frame" x="0.0" y="612" width="335" height="60"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="qbf-px-9cM">
+                                        <rect key="frame" x="0.0" y="612" width="334" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrT-1t-cSy">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrT-1t-cSy">
                                                 <rect key="frame" x="0.0" y="0.0" width="157" height="60"/>
                                                 <color key="backgroundColor" name="Color"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="157" id="1NI-8G-Iff"/>
-                                                    <constraint firstAttribute="height" constant="60" id="zid-V6-BLJ"/>
+                                                    <constraint firstAttribute="width" constant="157" id="oJb-7k-g3C"/>
+                                                    <constraint firstAttribute="height" constant="60" id="uzq-YB-Bp9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -96,11 +96,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1V-lV-EbM">
-                                                <rect key="frame" x="178" y="0.0" width="157" height="60"/>
+                                                <rect key="frame" x="177" y="0.0" width="157" height="60"/>
                                                 <color key="backgroundColor" name="Color"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="YtO-XC-jdD"/>
-                                                </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Да"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Да">
@@ -119,21 +116,27 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="j0T-B5-R19" firstAttribute="top" secondItem="qOG-w3-hns" secondAttribute="bottom" constant="20" id="4qn-xm-xRW"/>
+                                    <constraint firstItem="qbf-px-9cM" firstAttribute="top" secondItem="j0T-B5-R19" secondAttribute="bottom" constant="20" id="Ppo-tR-N44"/>
+                                    <constraint firstItem="qOG-w3-hns" firstAttribute="top" secondItem="meO-1T-E4r" secondAttribute="bottom" constant="20" id="Qkp-eK-j0k"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3fj-Ft-iku"/>
                         <color key="backgroundColor" name="YP Blackground"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="0.65000000000000002" height="1"/>
                         <constraints>
-                            <constraint firstItem="3fj-Ft-iku" firstAttribute="top" secondItem="Pl0-Sp-jLe" secondAttribute="top" constant="-10" id="bhA-Fn-Vzw"/>
-                            <constraint firstAttribute="bottom" secondItem="Pl0-Sp-jLe" secondAttribute="bottom" constant="34" id="tYX-ag-RPb"/>
-                            <constraint firstItem="Pl0-Sp-jLe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ydO-AG-yAO"/>
+                            <constraint firstItem="65H-vk-C0X" firstAttribute="bottom" secondItem="3fj-Ft-iku" secondAttribute="bottom" id="FIS-Tr-RcO"/>
+                            <constraint firstItem="65H-vk-C0X" firstAttribute="leading" secondItem="3fj-Ft-iku" secondAttribute="leading" constant="20" id="HBW-zw-zSO"/>
+                            <constraint firstItem="3fj-Ft-iku" firstAttribute="trailing" secondItem="65H-vk-C0X" secondAttribute="trailing" constant="21" id="NcT-0M-icB"/>
+                            <constraint firstItem="3fj-Ft-iku" firstAttribute="top" secondItem="65H-vk-C0X" secondAttribute="top" constant="-10" id="T8C-ak-Poj"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="812"/>
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
-                        <outlet property="counterLabel" destination="5N8-6e-At8" id="ywp-uB-W2i"/>
+                        <outlet property="counterLabel" destination="dig-f7-k2y" id="tYx-IX-8w1"/>
                         <outlet property="imageView" destination="qOG-w3-hns" id="6Yv-Aa-W08"/>
                         <outlet property="noButton" destination="vrT-1t-cSy" id="rkx-3i-tnP"/>
                         <outlet property="textLabel" destination="j0T-B5-R19" id="ejK-29-hjj"/>
