@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24765" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24743"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,6 @@
                 <viewController id="BYZ-38-t0r" customClass="MovieQuizViewController" customModule="MovieQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="65H-vk-C0X">
                                 <rect key="frame" x="20" y="106" width="334" height="672"/>
@@ -122,6 +121,9 @@
                                     <constraint firstItem="qOG-w3-hns" firstAttribute="top" secondItem="meO-1T-E4r" secondAttribute="bottom" constant="20" id="Qkp-eK-j0k"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4fM-HX-Tet">
+                                <rect key="frame" x="177.5" y="396" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3fj-Ft-iku"/>
                         <color key="backgroundColor" name="YP Blackground"/>
@@ -129,13 +131,16 @@
                         <constraints>
                             <constraint firstItem="65H-vk-C0X" firstAttribute="bottom" secondItem="3fj-Ft-iku" secondAttribute="bottom" id="FIS-Tr-RcO"/>
                             <constraint firstItem="65H-vk-C0X" firstAttribute="leading" secondItem="3fj-Ft-iku" secondAttribute="leading" constant="20" id="HBW-zw-zSO"/>
+                            <constraint firstItem="4fM-HX-Tet" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="LET-JZ-EYs"/>
                             <constraint firstItem="3fj-Ft-iku" firstAttribute="trailing" secondItem="65H-vk-C0X" secondAttribute="trailing" constant="21" id="NcT-0M-icB"/>
                             <constraint firstItem="3fj-Ft-iku" firstAttribute="top" secondItem="65H-vk-C0X" secondAttribute="top" constant="-10" id="T8C-ak-Poj"/>
+                            <constraint firstItem="4fM-HX-Tet" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oG7-5D-THc"/>
                         </constraints>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="812"/>
                     <size key="freeformSize" width="375" height="812"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="4fM-HX-Tet" id="bxY-aI-tI3"/>
                         <outlet property="counterLabel" destination="dig-f7-k2y" id="tYx-IX-8w1"/>
                         <outlet property="imageView" destination="qOG-w3-hns" id="6Yv-Aa-W08"/>
                         <outlet property="noButton" destination="vrT-1t-cSy" id="rkx-3i-tnP"/>
