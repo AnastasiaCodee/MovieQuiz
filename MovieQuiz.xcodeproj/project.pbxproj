@@ -23,6 +23,8 @@
 		5DC2FEDD3052752A00F57CED /* MostPopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2FEDC3052752A00F57CED /* MostPopularMovies.swift */; };
 		5DC2FEDF30527CFE00F57CED /* MoviesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2FEDE30527CFE00F57CED /* MoviesLoader.swift */; };
 		5DC78F8F2F36659500A9F504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC78F8E2F36659500A9F504 /* Main.storyboard */; };
+		5DC9EC573059213E007A2E52 /* top250MoviesIMDB 2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DC9EC563059213E007A2E52 /* top250MoviesIMDB 2.json */; };
+		5DC9EC5930593A9A007A2E52 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC9EC5830593A9A007A2E52 /* Movie.swift */; };
 		5DDC17F82F7FA5790091ECB5 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDC17F72F7FA5790091ECB5 /* GameResult.swift */; };
 		AD1ABAB22831907B00B3E448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1ABAB12831907B00B3E448 /* AppDelegate.swift */; };
 		AD1ABAB42831907B00B3E448 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1ABAB32831907B00B3E448 /* SceneDelegate.swift */; };
@@ -51,6 +53,8 @@
 		5DC2FEDC3052752A00F57CED /* MostPopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MostPopularMovies.swift; sourceTree = "<group>"; };
 		5DC2FEDE30527CFE00F57CED /* MoviesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesLoader.swift; sourceTree = "<group>"; };
 		5DC78F8E2F36659500A9F504 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5DC9EC563059213E007A2E52 /* top250MoviesIMDB 2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "top250MoviesIMDB 2.json"; sourceTree = "<group>"; };
+		5DC9EC5830593A9A007A2E52 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		5DDC17F72F7FA5790091ECB5 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		AD1ABAAE2831907B00B3E448 /* MovieQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1ABAB12831907B00B3E448 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		5D8543522F13AA4E00BDBBCE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5DC9EC563059213E007A2E52 /* top250MoviesIMDB 2.json */,
 				5D33D3222F6423EB004A55C9 /* QuestionFactory.swift */,
 				5D8A25ED2F694DA2002ADFFE /* QuestionFactoryProtocol.swift */,
 				5DA27D442F6A79C9004D4505 /* QuestionFactoryDelegate.swift */,
@@ -107,6 +112,7 @@
 				5D33D3282F642801004A55C9 /* QuizQuestion.swift */,
 				5DA27D482F6AB63A004D4505 /* AlertModel.swift */,
 				5DC2FEDC3052752A00F57CED /* MostPopularMovies.swift */,
+				5DC9EC5830593A9A007A2E52 /* Movie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC9EC573059213E007A2E52 /* top250MoviesIMDB 2.json in Resources */,
 				5D17E41A2EEC194900C15CA0 /* YS Display-Medium.ttf in Resources */,
 				5D17E41B2EEC194900C15CA0 /* YS Display-Bold.ttf in Resources */,
 				AD1ABABE2831907F00B3E448 /* LaunchScreen.storyboard in Resources */,
@@ -260,6 +267,7 @@
 				5DA27D472F6AAF3D004D4505 /* AlertPresenter.swift in Sources */,
 				5D3927302F7686660021F15C /* StatisticServiceProtocol.swift in Sources */,
 				5D3927322F76887F0021F15C /* StatisticService.swift in Sources */,
+				5DC9EC5930593A9A007A2E52 /* Movie.swift in Sources */,
 				5D33D3232F6423EB004A55C9 /* QuestionFactory.swift in Sources */,
 				5DDC17F82F7FA5790091ECB5 /* GameResult.swift in Sources */,
 				AD77F5742857F8810062FB14 /* Date+Extensions.swift in Sources */,

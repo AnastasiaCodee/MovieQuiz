@@ -4,7 +4,7 @@
 //
 //  Created by Анастасия on 10.09.2026.
 //
-
+/*
 import Foundation
 
 struct MostPopularMovies: Codable {
@@ -32,3 +32,4 @@ struct MostPopularMovie: Codable {
         case imageURL = "image"
     }
 }
+*/
