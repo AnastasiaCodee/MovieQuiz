@@ -4,6 +4,7 @@
 //
 //  Created by Анастасия on 13.03.2026.
 //
+// Sprint 06: переход на OMDb API, разнообразные вопросы
 
 import Foundation
 
