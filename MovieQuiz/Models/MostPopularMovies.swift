@@ -4,26 +4,22 @@
 //
 //  Created by Анастасия on 10.09.2026.
 //
-/*
+
 import Foundation
 
 struct MostPopularMovies: Codable {
-    let errorMessage: String
+    let errorMessage: String?
     let items: [MostPopularMovie]
 }
 
 struct MostPopularMovie: Codable {
     let title: String
-    let rating: String
+    let rating: Double
     let imageURL: URL
     
     var resizedImageURL: URL {
-        let urlString = imageURL.absoluteString
-        let imageUrlString = urlString.components(separatedBy: "._")[0] + "._V0_UX600_.jpg"
-        guard let newURL = URL(string: imageUrlString) else {
             return imageURL
-        }
-        return newURL
+    
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -32,4 +28,4 @@ struct MostPopularMovie: Codable {
         case imageURL = "image"
     }
 }
-*/
+
