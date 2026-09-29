@@ -43,8 +43,16 @@ final class MovieQuizUITests: XCTestCase {
         // https://developer.apple.com/documentation/xcuiautomation
     }
     
-    
-  
-    func testScreenCast() throws { }
-    
+    func testYesButton() throws {
+        let firstPoster = app.images["Poster"]
+        
+        app.buttons["Yes"].tap()
+        
+        let secondPoster = app.images["Poster"]
+        
+        XCTAssertFalse(firstPoster == secondPoster)
+    }
+    let app = XCUIApplication()
+    app.activate()
+    func testScreenCast() throws {}
 }
