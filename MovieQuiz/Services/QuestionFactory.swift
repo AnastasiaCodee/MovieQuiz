@@ -12,7 +12,7 @@ class QuestionFactory: QuestionFactoryProtocol {
     private let moviesLoader: MoviesLoading
     private weak var delegate: QuestionFactoryDelegate?
     
-    private var movies: [Movie] = []
+    private var movies: [MostPopularMovie] = []
     
     init(moviesLoader: MoviesLoading, delegate: QuestionFactoryDelegate?){
         self.moviesLoader = moviesLoader
@@ -25,8 +25,8 @@ class QuestionFactory: QuestionFactoryProtocol {
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 switch result {
-                case.success(let movies):
-                    self.movies = movies
+                case.success(let mostPopularMovies):
+                    self.movies = mostPopularMovies.items
                     self.delegate?.didLoadDataFromServer()
                 case .failure(let error):
                     self.delegate?.didFailToLoadData(with: error)
@@ -173,17 +173,7 @@ class QuestionFactory: QuestionFactoryProtocol {
         let index = (0..<movies.count).randomElement() ?? 0
         guard let movie = movies[safe: index] else { return }
         
-        // Картинка из поля poster
-        guard let url = URL(string: movie.poster) else {
-            // если URL битый, покажем вопрос без картинки
-            let question = makeQuestion(from: movie, imageData: Data())
-            DispatchQueue.main.async { [weak self] in
-                self?.delegate?.didReceiveNextQuestion(question: question)
-            }
-            return
-        }
-        
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: movie.resizedImageURL)
         request.timeoutInterval = 10
         
         URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
@@ -194,37 +184,30 @@ class QuestionFactory: QuestionFactoryProtocol {
                 print("Картинка не загрузилась: \(error.localizedDescription)")
             }
             
-            let question = self.makeQuestion(from: movie, imageData: imageData)
+            let rating = movie.rating
+            let isGreaterComparison = Bool.random()
+            let roundedRating = Int(rating.rounded())
+            let offset = Int.random(in: -1...1)
+            let threshold = max(1, min(10, roundedRating + offset))
             
+            let text: String
+            let correctAnswer: Bool
+            if isGreaterComparison {
+                text = "Рейтинг этого фильма больше чем \(threshold)?"
+                correctAnswer = rating > Double(threshold)
+            } else {
+                text = "Рейтинг этого фильма меньше чем \(threshold)?"
+                correctAnswer = rating < Double(threshold)
+            }
+            
+            let question = QuizQuestion (
+                image: imageData,
+                text: text,
+                correctAnswer: correctAnswer
+            )
             DispatchQueue.main.async { [weak self] in
                 self?.delegate?.didReceiveNextQuestion(question: question)
             }
         }.resume()
-    }
-    
-    private func makeQuestion(from movie: Movie, imageData: Data) -> QuizQuestion {
-        let rating = Float(movie.imdbRating) ?? 0
-        
-        let isGreaterComparison = Bool.random()
-        let roundedRating = Int(rating.rounded())
-        let offset = Int.random(in: -1...1)
-        let threshold = max(1, min(10, roundedRating + offset))
-        
-        let text: String
-        let correctAnswer: Bool
-        
-        if isGreaterComparison {
-            text = "Рейтинг этого фильма больше чем \(threshold)?"
-            correctAnswer = rating > Float(threshold)
-        } else {
-            text = "Рейтинг этого фильма меньше чем \(threshold)?"
-            correctAnswer = rating < Float(threshold)
-        }
-        
-        return QuizQuestion(
-            image: imageData,
-            text: text,
-            correctAnswer: correctAnswer
-        )
     }
 }
